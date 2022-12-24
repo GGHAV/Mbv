@@ -1,0 +1,41 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget,QHBoxLayout, QVBoxLayout,QGroupBox, QRadioButton,QPushButton, QLabel,QButtonGroup
+from random import shuffle
+from random import randint
+
+class Questions():
+    def __init__(self,question, right_anser, wrong,wrong1,wrong2):
+        self.question = question
+        self.right_anser = right_anser
+        self.wrong = wrong
+        self.wrong1 = wrong1
+        self.wrong2 = wrong2
+
+app = QApplication([])
+# Создаем панель вопроса
+btn_OK = QPushButton('Ответить')
+lb_Question = QLabel('')
+RadioGroupBox = QGroupBox("Варианты ответов")
+rbtn_1 = QRadioButton('Вариант 1')
+rbtn_2 = QRadioButton('Вариант 2')
+rbtn_3 = QRadioButton('Вариант 3')
+rbtn_4 = QRadioButton('Вариант 4')
+
+RadioGroup = QButtonGroup()
+RadioGroup.addButton(rbtn_1)
+RadioGroup.addButton(rbtn_2)
+RadioGroup.addButton(rbtn_3)
+RadioGroup.addButton(rbtn_4)
+
+layout_ans1 = QHBoxLayout()
+layout_ans2 = QVBoxLayout()
+layout_ans3 = QVBoxLayout()
+layout_ans2.addWidget(rbtn_1)
+layout_ans2.addWidget(rbtn_2)
+layout_ans3.addWidget(rbtn_3) 
+layout_ans3.addWidget(rbtn_4)
+
+layout_ans1.addLayout(layout_ans2)
+layout_ans1.addLayout(layout_ans3)
+
+RadioGroupBox.setLayout(layout_ans1)
